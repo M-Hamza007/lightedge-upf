@@ -17,7 +17,7 @@ RUN buildDeps='build-essential git cmake autoconf ca-certificates unzip net-tool
     && git clone https://github.com/kohler/click.git click \
     && cd click \
     && git checkout dabb6d61a28a0f350af93bc1f081dd913d8c8548 \
-    && ./configure --disable-linuxmodule --enable-userlevel \
+    && ./configure --enable-linuxmodule --disable-userlevel \
     && make \
     && make install \
     && cd / \
@@ -34,12 +34,7 @@ RUN buildDeps='build-essential git cmake autoconf ca-certificates unzip net-tool
     && cd lightedge-upfservice \
     && ./configure --with-click=/usr/local --with-upflib=/tmp/build \
     && make \
-    && make install
-    # && cd / \
-    # && rm -r /tmp/build \
-    # && rm -r /upflib \
-    # && rm -r /lightedge-upfservice 
-    # && apt-get purge -y --auto-remove $buildDeps
+    && make install 
 
 RUN ls /
 
