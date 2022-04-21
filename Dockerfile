@@ -44,4 +44,4 @@ ADD modes /modes
 ADD launcher.sh /
 
 # Run the launcher script
-ENTRYPOINT ["/launcher.sh"]
+# ENTRYPOINT ["/launcher.sh"]
