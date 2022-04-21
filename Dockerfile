@@ -11,8 +11,8 @@ RUN apt-get update
 RUN buildDeps='build-essential git cmake autoconf ca-certificates unzip net-tools apt-utils' \
     && set -x \
     && apt-get update \
-    && apt-get install linux-image-5.4.0-104-generic \
-    && apt-get install linux-headers-5.4.0-104-generic \
+    && apt-get install -y linux-image-5.4.0-104-generic \
+    && apt-get install -y linux-headers-5.4.0-104-generic \
     && apt-get install -y $buildDeps \
     && apt-get install -y iptables iproute2 \
     && rm -rf /var/lib/apt/lists/* \
