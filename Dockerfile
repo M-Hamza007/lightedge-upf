@@ -11,13 +11,15 @@ RUN apt-get update
 RUN buildDeps='build-essential git cmake autoconf ca-certificates unzip net-tools apt-utils' \
     && set -x \
     && apt-get update \
+    && apt-get install linux-image-5.4.0-104-generic \
+    && apt-get install linux-headers-5.4.0-104-generic \
     && apt-get install -y $buildDeps \
     && apt-get install -y iptables iproute2 \
     && rm -rf /var/lib/apt/lists/* \
     && git clone https://github.com/kohler/click.git click \
     && cd click \
     && git checkout dabb6d61a28a0f350af93bc1f081dd913d8c8548 \
-    && ./configure --disable-linuxmodule --enable-userlevel \
+    && LINUX_VERSION='5.4.0-104-generic' ./configure --with-linux=/usr/src/linux-headers-$LINUX_VERSION --with-linux-map=/boot/System.map-$LINUX_VERSION --enable-linuxmodule --disable-userlevel \
     && make \
     && make install \
     && cd / \
