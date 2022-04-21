@@ -19,7 +19,7 @@ RUN buildDeps='build-essential git cmake autoconf ca-certificates unzip net-tool
     && git clone https://github.com/kohler/click.git click \
     && cd click \
     && git checkout dabb6d61a28a0f350af93bc1f081dd913d8c8548 \
-    && LINUX_VERSION='5.4.0-104-generic' ./configure --with-linux=/usr/src/linux-headers-$LINUX_VERSION --with-linux-map=/boot/System.map-$LINUX_VERSION --enable-linuxmodule --disable-userlevel \
+    && LINUX_VERSION='5.4.0-104-generic' ./configure --with-linux=/usr/src/linux-headers-$LINUX_VERSION --with-linux-map=/boot/System.map-$LINUX_VERSION --disable-linuxmodule --enable-userlevel \
     && make \
     && make install \
     && cd / \
