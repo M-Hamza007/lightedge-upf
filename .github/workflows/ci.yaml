@@ -35,6 +35,7 @@ jobs:
         push: true
         tags: bytecommander12/lightedge-upf-service:${{ secrets.MAJOR }}.${{ secrets.MINOR }}
 
+  # To update minor version
     - name: Update Minor version
       uses: hmanzur/actions-set-secret@v2.0.0
       with:
